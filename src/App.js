@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './App.css';
+import React, { useState, useEffect, useRef } from "react";
+import "./App.css";
 
 /* ─────────────────────────── DATA ─────────────────────────── */
 const DATA = {
@@ -15,8 +15,8 @@ const DATA = {
     trailhead: "https://www.salesforce.com/trailblazer/ornellanana",
     location: "Rennes · Mobilité Nationale",
   },
-  profile: "Développeuse Java/PHP junior spécialisée dans le développement d'applications web et la conception d'API avec Spring Boot et Symfony. J'apprécie concevoir des applications robustes, évolutives et maintenables en utilisant les bonnes pratiques du développement logiciel.",
-
+  profile:
+    "Développeuse Java/PHP junior spécialisée dans le développement d'applications web et la conception d'API avec Spring Boot et Symfony. J'apprécie concevoir des applications robustes, évolutives et maintenables en utilisant les bonnes pratiques du développement logiciel.",
 
   skills: [
     {
@@ -161,7 +161,7 @@ const DATA = {
         "Conteneurisation Docker, API Gateway, documentation Swagger",
       ],
       link: "",
-      private : true,
+      private: true,
     },
   ],
   education: [
@@ -232,7 +232,15 @@ function useInView(threshold = 0.15) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } }, { threshold });
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
+      { threshold },
+    );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, [threshold]);
@@ -244,37 +252,52 @@ function useInView(threshold = 0.15) {
 function Navbar({ active, setActive }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const sections = ['Profil', 'Compétences', 'Projets', 'Parcours', 'Contact'];
+  const sections = ["Profil", "Compétences", "Projets", "Parcours", "Contact"];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const handleNav = (s) => {
     setActive(s);
     setMenuOpen(false);
-    document.getElementById(s.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
+    document
+      .getElementById(s.toLowerCase())
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <div className="navbar-brand" onClick={() => handleNav('Profil')}>
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      <div className="navbar-brand" onClick={() => handleNav("Profil")}>
         <span className="brand-initials">ON</span>
         <span className="brand-name">Ornella NANA</span>
       </div>
-      <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
-        <span></span><span></span><span></span>
+      <button
+        className="hamburger"
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-      <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
-        {sections.map(s => (
+      <ul className={`navbar-links ${menuOpen ? "open" : ""}`}>
+        {sections.map((s) => (
           <li key={s}>
-            <button className={active === s ? 'active' : ''} onClick={() => handleNav(s)}>{s}</button>
+            <button
+              className={active === s ? "active" : ""}
+              onClick={() => handleNav(s)}
+            >
+              {s}
+            </button>
           </li>
         ))}
         <li>
-          <a className="nav-cta" href={`tel:${DATA.contact.email}`}>Me contacter</a>
+          <a className="nav-cta" href={`tel:${DATA.contact.email}`}>
+            Me contacter
+          </a>
         </li>
       </ul>
     </nav>
@@ -341,7 +364,9 @@ function Hero() {
         <div className="tech-chips">
           {[
             "Salesforce",
-            "Spring Boot",'JavaFx',"JDBC",
+            "Spring Boot",
+            "JavaFx",
+            "JDBC",
             "React.js",
             "LWC",
             "Docker",
@@ -363,12 +388,18 @@ function Hero() {
 function SkillCard({ skill, index }) {
   const [ref, visible] = useInView();
   return (
-    <div ref={ref} className={`skill-card ${visible ? 'fade-up' : ''}`} style={{ animationDelay: `${index * 0.1}s` }}>
+    <div
+      ref={ref}
+      className={`skill-card ${visible ? "fade-up" : ""}`}
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
       <div className="skill-icon">{skill.icon}</div>
       <h3 className="skill-category">{skill.category}</h3>
       <div className="skill-tags">
-        {skill.items.map(item => (
-          <span key={item} className="skill-tag">{item}</span>
+        {skill.items.map((item) => (
+          <span key={item} className="skill-tag">
+            {item}
+          </span>
         ))}
       </div>
     </div>
@@ -411,7 +442,7 @@ function ProjectCard({ project, index }) {
           <p className="project-subtitle">{project.subtitle}</p>
         </div>
         {project.private ? (
-          <span className="project-private">🔒 Dépôt privé</span>
+          <span className="project-private">🔒</span>
         ) : (
           <a
             href={project.link}
@@ -457,10 +488,15 @@ function Projects() {
       <div className="section-header">
         <span className="section-label">RÉALISATIONS</span>
         <h2 className="section-title">Projets concrets</h2>
-        <p className="section-sub">Des projets collaboratifs et académiques avec de vraies architectures en production.</p>
+        <p className="section-sub">
+          Des projets collaboratifs et académiques avec de vraies architectures
+          en production.
+        </p>
       </div>
       <div className="projects-grid">
-        {DATA.projects.map((p, i) => <ProjectCard key={p.name} project={p} index={i} />)}
+        {DATA.projects.map((p, i) => (
+          <ProjectCard key={p.name} project={p} index={i} />
+        ))}
       </div>
     </section>
   );
@@ -478,7 +514,10 @@ function Timeline() {
           <h3 className="col-title">🎓 Formation</h3>
           <div className="timeline">
             {DATA.education.map((e, i) => (
-              <div key={i} className={`timeline-item ${e.current ? 'current' : ''}`}>
+              <div
+                key={i}
+                className={`timeline-item ${e.current ? "current" : ""}`}
+              >
                 <div className="timeline-dot"></div>
                 <div className="timeline-body">
                   <span className="timeline-period">{e.period}</span>
@@ -496,28 +535,44 @@ function Timeline() {
             {DATA.certifications.map((c, i) => (
               <div key={i} className="cert-item">
                 <span className="cert-check">✓</span>
-                {c.link
-                  ? <a href={c.link} target="_blank" rel="noreferrer" className="cert-link">{c.label}</a>
-                  : <span>{c.label}</span>}
+                {c.link ? (
+                  <a
+                    href={c.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="cert-link"
+                  >
+                    {c.label}
+                  </a>
+                ) : (
+                  <span>{c.label}</span>
+                )}
               </div>
             ))}
           </div>
           <div className="soft-skills">
             <h3 className="col-title">💡 Qualités personnelles</h3>
             <div className="soft-tags">
-              {DATA.softSkills.map(s => <span key={s} className="soft-tag">{s}</span>)}
+              {DATA.softSkills.map((s) => (
+                <span key={s} className="soft-tag">
+                  {s}
+                </span>
+              ))}
             </div>
           </div>
           <div className="languages-block">
             <h3 className="col-title">🌍 Langues</h3>
-            {DATA.languages.map(l => (
+            {DATA.languages.map((l) => (
               <div key={l.lang} className="lang-row">
                 <div className="lang-info">
                   <span className="lang-name">{l.lang}</span>
                   <span className="lang-level">{l.level}</span>
                 </div>
                 <div className="lang-bar">
-                  <div className="lang-fill" style={{ width: `${l.pct}%` }}></div>
+                  <div
+                    className="lang-fill"
+                    style={{ width: `${l.pct}%` }}
+                  ></div>
                 </div>
               </div>
             ))}
@@ -540,10 +595,13 @@ function Contact() {
 
   return (
     <section id="contact" className="section contact-section" ref={ref}>
-      <div className={`contact-inner ${visible ? 'fade-in' : ''}`}>
+      <div className={`contact-inner ${visible ? "fade-in" : ""}`}>
         <span className="section-label">CONTACT</span>
         <h2 className="section-title">Travaillons ensemble</h2>
-        <p className="contact-intro">Je recherche une alternance en développement logiciel. N'hésitez pas à me contacter pour discuter de vos projets !</p>
+        <p className="contact-intro">
+          Je recherche une alternance en développement logiciel. N'hésitez pas à
+          me contacter pour discuter de vos projets !
+        </p>
         <div className="contact-cards">
           <button className="contact-card" onClick={copyEmail}>
             <span className="contact-icon">✉</span>
@@ -560,16 +618,33 @@ function Contact() {
               <p className="contact-value">{DATA.contact.phone}</p>
             </div>
           </a>
-          <a href={DATA.contact.linkedin} target="_blank" rel="noreferrer" className="contact-card">
+          <a
+            href={DATA.contact.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="contact-card"
+          >
             <span className="contact-icon">in</span>
             <div>
               <p className="contact-label">LinkedIn</p>
               <p className="contact-value">ornellanana</p>
             </div>
           </a>
-          <a href={DATA.contact.github} target="_blank" rel="noreferrer" className="contact-card">
+          <a
+            href={DATA.contact.github}
+            target="_blank"
+            rel="noreferrer"
+            className="contact-card"
+          >
             <span className="contact-icon github-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
             </span>
             <div>
               <p className="contact-label">GitHub</p>
@@ -593,22 +668,34 @@ function Footer() {
 
 /* ─────────────────────────── APP ─────────────────────────── */
 export default function App() {
-  const [active, setActive] = useState('Profil');
+  const [active, setActive] = useState("Profil");
 
   useEffect(() => {
-    const sectionIds = ['profil', 'compétences', 'projets', 'parcours', 'contact'];
+    const sectionIds = [
+      "profil",
+      "compétences",
+      "projets",
+      "parcours",
+      "contact",
+    ];
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const label = entry.target.id.charAt(0).toUpperCase() + entry.target.id.slice(1);
-            setActive(label === 'Compétences' ? 'Compétences' : label.charAt(0).toUpperCase() + label.slice(1));
+            const label =
+              entry.target.id.charAt(0).toUpperCase() +
+              entry.target.id.slice(1);
+            setActive(
+              label === "Compétences"
+                ? "Compétences"
+                : label.charAt(0).toUpperCase() + label.slice(1),
+            );
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
-    sectionIds.forEach(id => {
+    sectionIds.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
