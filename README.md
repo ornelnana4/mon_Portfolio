@@ -1,10 +1,10 @@
-# 🔴 Portfolio – Ornella NANA
+# Portfolio - Ornella NANA
 
 Portfolio interactif professionnel développé avec React.js.
 
 ---
 
-## 🚀 Comment le lancer ?
+##  Comment le lancer ?
 
 ### Prérequis
 - **Node.js** version 16 ou supérieure → https://nodejs.org
@@ -27,7 +27,7 @@ Le navigateur s'ouvre automatiquement sur **http://localhost:3000** 🎉
 
 ---
 
-## 📦 Créer la version finale (pour héberger)
+##  Créer la version finale (pour héberger)
 
 ```bash
 npm run build
@@ -37,7 +37,7 @@ Cela génère un dossier `/build` prêt à déployer sur Netlify, Vercel, GitHub
 
 ---
 
-## 🌐 Déploiement gratuit en 2 minutes sur Netlify
+##  Déploiement gratuit en 2 minutes sur Netlify
 
 1. Va sur https://netlify.com et crée un compte (gratuit)
 2. Glisse-dépose le dossier `/build` sur la page Netlify
@@ -45,7 +45,7 @@ Cela génère un dossier `/build` prêt à déployer sur Netlify, Vercel, GitHub
 
 ---
 
-## 📁 Structure du projet
+##  Structure du projet
 
 ```
 ornella-portfolio/
@@ -61,7 +61,7 @@ ornella-portfolio/
 
 ---
 
-## ✏️ Modifier le contenu
+##  Modifier le contenu
 
 Tout le contenu est centralisé dans l'objet `DATA` au début du fichier `src/App.js`.
 Tu peux facilement :
@@ -71,7 +71,7 @@ Tu peux facilement :
 
 ---
 
-## 🔧 Technologies utilisées
+##  Technologies utilisées
 
 - React.js 18
 - CSS custom properties (variables)
