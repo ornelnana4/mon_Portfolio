@@ -330,7 +330,7 @@ function Navbar({ active, setActive }) {
           </li>
         ))}
         <li>
-          <a className="nav-cta" href={`tel:${DATA.contact.email}`}>
+          <a className="nav-cta" href={`tel:${DATA.contact.phone}`}>
             Me contacter
           </a>
         </li>
