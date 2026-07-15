@@ -73,6 +73,11 @@ const DATA = {
         "Design Patterns (DAO, Singleton, Factory, Builder, Composite)",
       ],
     },
+    {
+      category: "CMS & Design",
+      icon: "🎨",
+      items: ["Wordpress", "Elementor", "Figma"],
+    },
   ],
   projects: [
     {
