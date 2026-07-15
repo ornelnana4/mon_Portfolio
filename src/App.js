@@ -198,21 +198,51 @@ const DATA = {
     {
       label: "92 Badges Trailhead + 1 Superbadge",
       link: "https://www.salesforce.com/trailblazer/ornellanana",
+      details: [
+        "Parcours complet sur la plateforme Trailhead de Salesforce",
+        "Modules couvrant CRM, Apex, LWC, administration, automatisation",
+        "1 Superbadge validant des compétences avancées sur des cas réels",
+      ],
     },
-    { label: "Certification Salesforce Associate", link: null },
+    {
+      label: "Certification Salesforce Associate",
+      link: null,
+      details: [
+        "Certification officielle Salesforce obtenue après formation intensive",
+        "Valide la maîtrise des fondamentaux CRM Salesforce",
+        "Compétences : navigation, gestion des données, rapports, automatisation de base",
+      ],
+    },
     {
       label: "Certification Scrum Fundamentals",
-      link: "https://www.scrumstudy.com/certification/verify?type=SFC&certificationId=TON_ID",
+      link: null,
+      details: [
+        "Maîtrise des principes de la méthodologie Agile Scrum",
+        "Rôles : Product Owner, Scrum Master, équipe de développement",
+        "Appliquée concrètement sur les projets Jamaa Backend et FlowAsso",
+      ],
     },
     {
-      label: "Stage Salesforce - Cloud-Architects (juin 2022 - août 2023)",
+      label: "Stage Salesforce – Cloud-Architects (juin 2022 – août 2023)",
       link: null,
+      details: [
+        "Découverte et prise en main complète de l'écosystème Salesforce",
+        "Formation sur Trailhead : Apex, LWC, SOQL, administration CRM",
+        "Préparation et obtention de la certification Salesforce Associate",
+        "Premiers développements sur une org Salesforce réelle",
+      ],
     },
     {
-      label: "Stage Développement Web - Openxtech (juin - déc 2024)",
+      label: "Stage Développement Web – Openxtech (juin – déc 2024)",
       link: null,
+      details: [
+        "HTML5 & CSS3 : structuration sémantique, mise en page responsive",
+        "Bootstrap : création d'interfaces mobiles-first, grilles, composants UI",
+        "JavaScript : manipulation du DOM, événements, logique front-end",
+        "Réalisation de pages web complètes et intégrées en production",
+      ],
     },
-    { label: "Formation FreeCodeCamp HTML5/CSS3", link: null },
+
   ],
   softSkills: [
     "Rigoureuse & organisée",
@@ -342,6 +372,13 @@ function Hero() {
             className="btn-secondary"
           >
             LinkedIn
+          </a>
+          <a
+            href="/CV_Ornella_NANA.pdf"
+            download="CV_Ornella_NANA.pdf"
+            className="btn-download"
+          >
+            ⬇ Télécharger mon CV
           </a>
         </div>
         <div className="hero-meta">
@@ -502,6 +539,47 @@ function Projects() {
   );
 }
 
+function CertItem({ cert }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="cert-item-wrap">
+      <div
+        className="cert-item"
+        onClick={() => setOpen(!open)}
+        style={{ cursor: "pointer" }}
+      >
+        <span className="cert-check">✓</span>
+        <div style={{ flex: 1 }}>
+          {cert.link ? (
+            <a
+              href={cert.link}
+              target="_blank"
+              rel="noreferrer"
+              className="cert-link"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {cert.label}
+            </a>
+          ) : (
+            <span>{cert.label}</span>
+          )}
+        </div>
+        <span className="cert-toggle">{open ? "▲" : "▼"}</span>
+      </div>
+      {open && (
+        <ul className="cert-details">
+          {cert.details.map((d, i) => (
+            <li key={i}>
+              <span className="detail-bullet">▸</span>
+              {d}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 function Timeline() {
   return (
     <section id="parcours" className="section parcours-section">
@@ -533,21 +611,7 @@ function Timeline() {
           <h3 className="col-title">🏆 Certifications & Stages</h3>
           <div className="certs-list">
             {DATA.certifications.map((c, i) => (
-              <div key={i} className="cert-item">
-                <span className="cert-check">✓</span>
-                {c.link ? (
-                  <a
-                    href={c.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="cert-link"
-                  >
-                    {c.label}
-                  </a>
-                ) : (
-                  <span>{c.label}</span>
-                )}
-              </div>
+              <CertItem key={i} cert={c} />
             ))}
           </div>
           <div className="soft-skills">

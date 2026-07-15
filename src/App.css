@@ -744,3 +744,53 @@ ul { list-style: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+.cert-item-wrap {
+  border-bottom: 1px solid var(--border);
+}
+.cert-item {
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  transition: color var(--transition);
+}
+.cert-item:hover { color: var(--red-light); }
+.cert-toggle {
+  color: var(--text-dim);
+  font-size: 10px;
+  flex-shrink: 0;
+}
+.cert-details {
+  padding: 0 0 14px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeIn 0.2s ease;
+}
+.cert-details li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #A0A0A0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.btn-download {
+  background: transparent;
+  color: var(--red-light);
+  padding: 13px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid var(--red);
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-download:hover {
+  background: var(--red);
+  color: #fff;
+  transform: translateY(-2px);
+}
