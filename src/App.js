@@ -1,6 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
-
+import {
+  MapPin,
+  Phone,
+  Wrench,
+  Settings,
+  Cloud,
+  Bot,
+  Code2,
+  GitBranch,
+  GraduationCap,
+  Award,
+  Lightbulb,
+  Languages,
+  Lock,
+  Globe,
+} from "lucide-react";
 /* ─────────────────────────── DATA ─────────────────────────── */
 const DATA = {
   name: "Ornella NANA",
@@ -21,12 +36,12 @@ const DATA = {
   skills: [
     {
       category: "Langages",
-      icon: "{ }",
+      icon: Code2,
       items: ["Java", "PHP", "JavaScript", "HTML5", "CSS3", "SQL"],
     },
     {
       category: "Frameworks, Bibliothèques & CMS",
-      icon: "⚙",
+      icon: Settings,
       items: [
         "Spring Boot",
         "Symfony",
@@ -40,7 +55,7 @@ const DATA = {
     },
     {
       category: "Salesforce",
-      icon: "☁",
+      icon: Cloud,
       items: [
         "Apex Classes & Triggers",
         "Visualforce",
@@ -54,7 +69,7 @@ const DATA = {
     },
     {
       category: "Outils & DevOps",
-      icon: "🔧",
+      icon: Wrench,
       items: [
         "Git / GitHub",
         "Docker",
@@ -63,11 +78,12 @@ const DATA = {
         "Eclipse",
         "RabbitMQ",
         "GraphQL",
+        "Linux"
       ],
     },
     {
       category: "Méthodologies",
-      icon: "◈",
+      icon: GitBranch,
       items: [
         "Scrum",
         "MVC",
@@ -77,8 +93,8 @@ const DATA = {
     },
     {
       category: "Outils IA",
-      icon: "🤖",
-      items: ["ChatGPT", "GitHub Copilot", "Claude", "Gemini","Perplexity"],
+      icon: Bot,
+      items: ["ChatGPT", "GitHub Copilot", "Claude", "Gemini", "Perplexity"],
     },
   ],
   projects: [
@@ -313,7 +329,9 @@ function Navbar({ active, setActive }) {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-brand" onClick={() => handleNav("Profil")}>
-        <span className="brand-initials">ON</span>
+        <span className="brand-logo">
+          <span>O</span>N
+        </span>
         <span className="brand-name">Ornella NANA</span>
       </div>
       <button
@@ -403,14 +421,23 @@ function Hero() {
           </a>
         </div>
         <div className="hero-meta">
-          <span>📍 {DATA.contact.location}</span>
-          <span>📞 {DATA.contact.phone}</span>
+          <span>
+            <MapPin className="hero-icon" size={22} strokeWidth={2.8} />
+            <strong>{DATA.contact.location}</strong>
+          </span>
+
+          <span>
+            <Phone className="hero-icon" size={22} strokeWidth={2.8} />
+            <strong>{DATA.contact.phone}</strong>
+          </span>
         </div>
       </div>
       <div className={`hero-visual ${visible ? "slide-in" : ""}`}>
         <div className="avatar-ring">
           <div className="avatar-inner">
-            <span>ON</span>
+            <span className="avatar-logo">
+              O<span>N</span>
+            </span>{" "}
           </div>
           <div className="orbit orbit-1">
             <div className="orbit-dot"></div>
@@ -445,14 +472,25 @@ function Hero() {
 
 function SkillCard({ skill, index }) {
   const [ref, visible] = useInView();
+
+  const Icon = skill.icon;
+
   return (
     <div
       ref={ref}
       className={`skill-card ${visible ? "fade-up" : ""}`}
       style={{ animationDelay: `${index * 0.1}s` }}
     >
-      <div className="skill-icon">{skill.icon}</div>
+      <div className="skill-icon">
+        {typeof Icon === "object" || typeof Icon === "function" ? (
+          <Icon size={32} strokeWidth={2.5} />
+        ) : (
+          Icon
+        )}
+      </div>
+
       <h3 className="skill-category">{skill.category}</h3>
+
       <div className="skill-tags">
         {skill.items.map((item) => (
           <span key={item} className="skill-tag">
@@ -496,11 +534,22 @@ function ProjectCard({ project, index }) {
       <div className="project-header">
         <div>
           <span className="project-number">0{index + 1}</span>
-          <h3 className="project-name">{project.name}</h3>
+          <div className="project-title-row">
+            {project.icon && (
+              <project.icon
+                className="project-icon"
+                size={26}
+                strokeWidth={2.5}
+              />
+            )}
+            <h3 className="project-name">{project.name}</h3>
+          </div>{" "}
           <p className="project-subtitle">{project.subtitle}</p>
         </div>
         {project.private ? (
-          <span className="project-private">🔒</span>
+          <span className="project-private">
+            <Lock size={20} strokeWidth={2.5} />
+          </span>
         ) : (
           <a
             href={project.link}
@@ -631,7 +680,10 @@ function Timeline() {
       </div>
       <div className="parcours-grid">
         <div className="timeline-col">
-          <h3 className="col-title">🎓 Formation</h3>
+          <h3 className="col-title">
+            <GraduationCap className="title-icon" />
+            Formation
+          </h3>{" "}
           <div className="timeline">
             {DATA.education.map((e, i) => (
               <div
@@ -650,14 +702,20 @@ function Timeline() {
           </div>
         </div>
         <div className="certs-col">
-          <h3 className="col-title">🏆 Certifications & Stages</h3>
+          <h3 className="col-title">
+            <Award className="title-icon" />
+            Certifications & Stages
+          </h3>{" "}
           <div className="certs-list">
             {DATA.certifications.map((c, i) => (
               <CertItem key={i} cert={c} />
             ))}
           </div>
           <div className="soft-skills">
-            <h3 className="col-title">💡 Qualités personnelles</h3>
+            <h3 className="col-title">
+              <Lightbulb className="title-icon" />
+              Qualités personnelles
+            </h3>{" "}
             <div className="soft-tags">
               {DATA.softSkills.map((s) => (
                 <span key={s} className="soft-tag">
@@ -667,7 +725,10 @@ function Timeline() {
             </div>
           </div>
           <div className="languages-block">
-            <h3 className="col-title">🌍 Langues</h3>
+            <h3 className="col-title">
+              <Languages className="title-icon" />
+              Langues
+            </h3>{" "}
             {DATA.languages.map((l) => (
               <div key={l.lang} className="lang-row">
                 <div className="lang-info">

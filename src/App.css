@@ -794,3 +794,128 @@ ul { list-style: none; }
   color: #fff;
   transform: translateY(-2px);
 }
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.hero-meta span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.hero-icon {
+  color: #ef4444; /* ton rouge */
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.8;
+}
+.skill-icon {
+  color: #ef4444;
+}
+
+.skill-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+.col-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title-icon {
+  width: 18px;
+  height: 18px;
+  color: #ef4444;
+  stroke-width: 2.5;
+}
+.project-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.project-icon {
+  color: #ef4444;
+}
+
+.project-private svg {
+  color: #ef4444;
+}
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    #ef4444,
+    #991b1b
+  );
+
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+
+  box-shadow:
+    0 8px 20px rgba(239, 68, 68, 0.35);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-logo span {
+  color: #fff;
+}
+
+.brand-logo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.15);
+  transform: translateX(-100%);
+  transition: 0.4s;
+}
+
+.brand-logo:hover::after {
+  transform: translateX(100%);
+}
+
+.brand-name {
+  font-weight: 700;
+  margin-left: 12px;
+  font-size: 1.1rem;
+}
+.avatar-logo {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: -5px;
+
+  background: linear-gradient(
+    135deg,
+    #ef4444,
+    #ffffff
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 0 25px rgba(239,68,68,.35);
+}
+
+.avatar-logo span {
+  color: #ef4444;
+}
