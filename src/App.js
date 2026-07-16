@@ -211,21 +211,26 @@ const DATA = {
       ],
     },
     {
-      label: "Certification Salesforce Associate",
+      label: "Certification Salesforce Certified Platform Foundations",
       link: null,
       details: [
-        "Certification officielle Salesforce obtenue après formation intensive",
-        "Valide la maîtrise des fondamentaux CRM Salesforce",
-        "Compétences : navigation, gestion des données, rapports, automatisation de base",
+        "Certification officielle Salesforce validant les connaissances fondamentales de la plateforme.",
+        "Compréhension de l'écosystème Salesforce et des principaux produits CRM.",
+        "Maîtrise de la navigation dans Salesforce Lightning Experience et de l'interface utilisateur.",
+        "Connaissance du modèle de données Salesforce : objets, champs et relations.",
+        "Création et personnalisation de rapports et de tableaux de bord pour le suivi des indicateurs.",
+        "Compréhension des principes fondamentaux de la gestion des données et des bonnes pratiques Salesforce.",
       ],
     },
     {
       label: "Certification Scrum Fundamentals",
       link: null,
       details: [
-        "Maîtrise des principes de la méthodologie Agile Scrum",
-        "Rôles : Product Owner, Scrum Master, équipe de développement",
-        "Appliquée concrètement sur les projets Jamaa Backend et FlowAsso",
+        "Certification validant la compréhension des fondamentaux de la méthodologie Agile Scrum.",
+        "Maîtrise des rôles Scrum : Product Owner, Scrum Master et équipe de développement, ainsi que de leurs responsabilités.",
+        "Connaissance des événements Scrum : Sprint, Sprint Planning, Daily Scrum, Sprint Review et Sprint Retrospective.",
+        "Compréhension des artefacts Scrum : Product Backlog, Sprint Backlog et Increment, ainsi que de leur utilisation pour le suivi des projets.",
+        "Application des principes Agile et Scrum dans le cadre des projets Jamaa Backend et FlowAsso pour favoriser la collaboration, l'organisation du travail et les livraisons itératives.",
       ],
     },
     {
@@ -234,7 +239,7 @@ const DATA = {
       details: [
         "Découverte et prise en main complète de l'écosystème Salesforce",
         "Formation sur Trailhead : Apex, LWC, SOQL, administration CRM",
-        "Préparation et obtention de la certification Salesforce Associate",
+        "Préparation et obtention de la certification Salesforce Platform Foundations",
         "Premiers développements sur une org Salesforce réelle",
       ],
     },
@@ -377,6 +382,15 @@ function Hero() {
             className="btn-secondary"
           >
             LinkedIn
+          </a>
+          <a
+            href={DATA.contact.trailhead}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-secondary"
+          >
+            {" "}
+            Trailhead
           </a>
           <a
             href="/CV_NANA_ORNELLA.pdf"
