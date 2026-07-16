@@ -852,7 +852,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="footer">
-      <p>© 2025 Ornella NANA · Développeuse Full-Stack</p>
+      <p>© {new Date().getFullYear()} Ornella NANA · Développeuse Full-Stack</p>{" "}
       <p className="footer-sub">Conçu avec passion · Rennes, France</p>
     </footer>
   );
