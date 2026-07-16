@@ -25,7 +25,7 @@ const DATA = {
       items: ["Java", "PHP", "JavaScript", "HTML5", "CSS3", "SQL"],
     },
     {
-      category: "Frameworks & Bibliothèques",
+      category: "Frameworks, Bibliothèques & CMS",
       icon: "⚙",
       items: [
         "Spring Boot",
@@ -34,6 +34,8 @@ const DATA = {
         "Vue.js",
         "Bootstrap",
         "Twig",
+        "Wordpress",
+        "Elementor",
       ],
     },
     {
@@ -74,9 +76,9 @@ const DATA = {
       ],
     },
     {
-      category: "CMS & Design",
-      icon: "🎨",
-      items: ["Wordpress", "Elementor", "Figma"],
+      category: "Outils IA",
+      icon: "🤖",
+      items: ["ChatGPT", "GitHub Copilot", "Claude", "Gemini","Perplexity"],
     },
   ],
   projects: [
@@ -753,6 +755,18 @@ function Contact() {
             <div>
               <p className="contact-label">GitHub</p>
               <p className="contact-value">ornelnana4</p>
+            </div>
+          </a>
+          <a
+            href={DATA.contact.trailhead}
+            target="_blank"
+            rel="noreferrer"
+            className="contact-card"
+          >
+            <span className="contact-icon">☁️</span>
+            <div>
+              <p className="contact-label">Trailhead</p>
+              <p className="contact-value">Trailblazer Profile</p>
             </div>
           </a>
         </div>
