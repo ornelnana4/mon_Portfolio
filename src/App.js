@@ -15,6 +15,10 @@ import {
   Languages,
   Lock,
   Globe,
+  Download,
+  Mail,
+  Linkedin,
+  Github,
 } from "lucide-react";
 /* ─────────────────────────── DATA ─────────────────────────── */
 const DATA = {
@@ -417,7 +421,8 @@ function Hero() {
             download="CV_NANA_ORNELLA.pdf"
             className="btn-download"
           >
-            ⬇ Télécharger mon CV
+            <Download size={18} strokeWidth={2.5} />
+            Télécharger mon CV
           </a>
         </div>
         <div className="hero-meta">
@@ -771,7 +776,9 @@ function Contact() {
         </p>
         <div className="contact-cards">
           <button className="contact-card" onClick={copyEmail}>
-            <span className="contact-icon">✉</span>
+            <span className="contact-icon">
+              <Mail size={26} strokeWidth={2.5} />
+            </span>{" "}
             <div>
               <p className="contact-label">Email</p>
               <p className="contact-value">{DATA.contact.email}</p>
@@ -779,7 +786,9 @@ function Contact() {
             </div>
           </button>
           <a href={`tel:${DATA.contact.phone}`} className="contact-card">
-            <span className="contact-icon">📞</span>
+            <span className="contact-icon">
+              <Phone size={26} strokeWidth={2.5} />
+            </span>{" "}
             <div>
               <p className="contact-label">Téléphone</p>
               <p className="contact-value">{DATA.contact.phone}</p>
@@ -791,7 +800,9 @@ function Contact() {
             rel="noreferrer"
             className="contact-card"
           >
-            <span className="contact-icon">in</span>
+            <span className="contact-icon">
+              <Linkedin size={26} strokeWidth={2.5} />
+            </span>{" "}
             <div>
               <p className="contact-label">LinkedIn</p>
               <p className="contact-value">ornellanana</p>
@@ -824,7 +835,9 @@ function Contact() {
             rel="noreferrer"
             className="contact-card"
           >
-            <span className="contact-icon">☁️</span>
+            <span className="contact-icon">
+              <Cloud size={26} strokeWidth={2.5} />
+            </span>{" "}
             <div>
               <p className="contact-label">Trailhead</p>
               <p className="contact-value">Trailblazer Profile</p>

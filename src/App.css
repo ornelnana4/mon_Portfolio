@@ -919,3 +919,25 @@ ul { list-style: none; }
 .avatar-logo span {
   color: #ef4444;
 }
+.btn-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-download svg {
+  color: currentColor;
+}
+.contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ef4444;
+}
+
+.contact-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
