@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
 /* ─── VARIABLES ─── */
 :root {
   --red: #C1121F;
@@ -13,8 +14,8 @@
   --text: #F5F5F5;
   --text-muted: #888;
   --text-dim: #555;
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --radius: 12px;
   --radius-lg: 20px;
